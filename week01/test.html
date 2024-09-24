@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Tests</title>
+</head>
+<body>
+    <script>
+        //function one(x) {
+        //    return x;
+        //}
+//
+        //function two(x,y) {
+        //    return x + y;
+        //}
+//
+        //function three(x,y,z) {
+        //    return x + y + z;
+        //}
+//
+        //const functions = [null,one,two,three]
+        //document.writeln(functions[3](1,1))
+
+        //Q3a
+        function id (x) {
+            return x;
+        }
+
+        //const x__ = Math.random();
+        //document.writeln(id(x__) === x__);
+
+        //Q3b
+        const plus = (x) => (y) => x + y;
+        const x_ = Math.random();
+        const y_ = Math.random();
+        const plus3 = plus(3);
+        document.writeln(plus(x_)(y_) === x_ + y_ && plus3(y_) === y_ + 3);
+
+
+    </script>
+</body>
