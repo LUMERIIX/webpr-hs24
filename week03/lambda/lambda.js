@@ -26,6 +26,12 @@ const or = (c1) => (c2) => c1(T)(c2);
 // return first value if c1 == true
 // return second value if c1 == false
 
+const Pair = (first) => (last) => (firstOrLast) => firstOrLast(first)(last);
+//const firstname = first => last => first;
+const firstname = konst;
+//const lastname = first => last => last;
+const lastname = snd;
+
 // ----- special -----
 
 const Tuple = (n) => [

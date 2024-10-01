@@ -1,36 +1,35 @@
 // requires lambda.js
 
-
 const ok = [];
-const test = result => ok.push(result);
+const test = (result) => ok.push(result);
 
 // id
-test( id(1) === 1 );
-test( id(id) === id );
+test(id(1) === 1);
+test(id(id) === id);
 
 // konst
-test( konst(42)(0) === 42 );
-test( konst(42)(1) === 42 );
-test( konst(42)(null) === 42 );
+test(konst(42)(0) === 42);
+test(konst(42)(1) === 42);
+test(konst(42)(null) === 42);
 
 // kite
-test( snd(null)(42) === 42 );
+test(snd(null)(42) === 42);
 
 // true
-test( T(1)(0) === 1 ); // branches: wenn true gib mir den ersten fall!
-test( F(1)(0) === 0 ); // branches: wenn false gib mir den zweiten fall!
+test(T(1)(0) === 1); // branches: wenn true gib mir den ersten fall!
+test(F(1)(0) === 0); // branches: wenn false gib mir den zweiten fall!
 
 // and
-test( and(F)(F) === F );
-test( and(T)(F) === F );
-test( and(F)(T) === F );
-test( and(T)(T) === T );
+test(and(F)(F) === F);
+test(and(T)(F) === F);
+test(and(F)(T) === F);
+test(and(T)(T) === T);
 
 // or
-test( or(F)(F) === F );
-test( or(T)(F) === T );
-test( or(F)(T) === T );
-test( or(T)(T) === T );
+test(or(F)(F) === F);
+test(or(T)(F) === T);
+test(or(F)(T) === T);
+test(or(T)(T) === T);
 
 // flip
 // flip(f)(x)(y) = f(y)(x)
@@ -39,12 +38,12 @@ test( or(T)(T) === T );
 //
 // // beq
 //
-// // Pair
-//
-// const dierk = Pair("Dierk")("König"); // immutable
-// test( dierk(firstname) === "Dierk");
-// test( dierk(lastname)  === "König");
-//
+
+// Pair
+const dierk = Pair("Dierk")("König"); // immutable => das hier is noch nicht evaluiert (ist noch eine funktion)
+test(dierk(firstname) === "Dierk");
+test(dierk(lastname) === "König");
+
 // const tdierk = Triple("Dierk")("König")(50); // immutable
 // test( tdierk(tfirstname) === "Dierk");
 // test( tdierk(tlastname)  === "König");
@@ -68,7 +67,6 @@ test( or(T)(T) === T );
 //
 // // either
 //
-
 
 // const safeDiv = num => divisor =>
 //     divisor === 0
@@ -97,28 +95,26 @@ test( or(T)(T) === T );
 // test( doPay(invo) === "Roger 4711");
 // test( doPay(pal ) === "pal: Dierk");
 
-
-
-
 // test result report
 const allTestsOk = () => {
-    for (let i = 0; i < ok.length; i++) { // not nice, yet. Needs improvement
-        if (false === ok[i]) {
-            return false;
-        }
+  for (let i = 0; i < ok.length; i++) {
+    // not nice, yet. Needs improvement
+    if (false === ok[i]) {
+      return false;
     }
-    return true;
+  }
+  return true;
 };
 
 if (allTestsOk()) {
-    document.writeln("All "+ ok.length +" tests ok.");
+  document.writeln("All " + ok.length + " tests ok.");
 } else {
-    document.writeln("Not all tests ok! Details:");
-    for (let i = 0; i < ok.length; i++) {
-        if(ok[i]) {
-            document.writeln("Test "+ i +" ok");
-        } else {
-            document.writeln("Test "+ i +" failed");
-        }
+  document.writeln("Not all tests ok! Details:");
+  for (let i = 0; i < ok.length; i++) {
+    if (ok[i]) {
+      document.writeln("Test " + i + " ok");
+    } else {
+      document.writeln("Test " + i + " failed");
     }
+  }
 }
