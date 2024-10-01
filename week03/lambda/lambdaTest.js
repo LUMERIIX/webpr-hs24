@@ -10,11 +10,12 @@ const id = x => x;
 test( id(1) === 1 );
 test( id(id) === id );
 
-// // konst
-// test( konst(42)(0) === 42 );
-// test( konst(42)(1) === 42 );
-// test( konst(42)(null) === 42 );
-//
+const konst = x => y => x;
+// konst
+test( konst(42)(0) === 42 );
+test( konst(42)(1) === 42 );
+test( konst(42)(null) === 42 );
+
 // // kite
 // test( snd(null)(42) === 42 );
 //
