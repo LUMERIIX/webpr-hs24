@@ -16,11 +16,10 @@ test( konst(42)(null) === 42 );
 // kite
 test( snd(null)(42) === 42 );
 
-// // true
-//
-// test( T(1)(0) === 1 );
-// test( F(1)(0) === 0 );
-//
+// true
+test( T(1)(0) === 1 ); // branches: wenn true gib mir den ersten fall!
+test( F(1)(0) === 0 ); // branches: wenn false gib mir den zweiten fall!
+
 // // and
 // test( and(F)(F) === F );
 // test( and(T)(F) === F );

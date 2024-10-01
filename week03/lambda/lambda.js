@@ -5,6 +5,11 @@ const id = x => x;
 const konst = x => y => x;
 
 const snd = konst(id);
+// const snd = x => y => y;
+
+// const expr == x ? tc : fc;
+const T = tc => fc => tc;
+const F = tc => fc => fc;
 
 // ----- special -----
 
