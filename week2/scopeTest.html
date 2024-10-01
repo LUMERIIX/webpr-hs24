@@ -21,9 +21,11 @@
 
         test( id(id) === id);
         // (x => x)(id) ~> (id => id) ~> id
+        // Konst return first argument
         const Konst = (x) => (y) => x;
         test( Konst(id)(undefined) === id);
-
+        
+        // Return second argument
         const Kite = (x) => (y) => y;
         test( Kite(undefined)(id) === id);
 
