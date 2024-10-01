@@ -13,9 +13,9 @@ test( konst(42)(0) === 42 );
 test( konst(42)(1) === 42 );
 test( konst(42)(null) === 42 );
 
-// // kite
-// test( snd(null)(42) === 42 );
-//
+// kite
+test( snd(null)(42) === 42 );
+
 // // true
 //
 // test( T(1)(0) === 1 );

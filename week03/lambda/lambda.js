@@ -4,6 +4,8 @@ const id = x => x;
 // konst
 const konst = x => y => x;
 
+const snd = konst(id);
+
 // ----- special -----
 
 const Tuple = n => [
