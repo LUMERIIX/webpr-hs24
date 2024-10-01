@@ -17,7 +17,7 @@ const id1 = y => y;
 const fst = x => y => x;
 //const snd = x => y => y;
 //const snd = x => y => fst(y)(x)
-const snd = x => y => fst(id1)(id1)(id1); 
+const snd = fst(id1);
 const x_ = Math.random();
 const y_ = Math.random();
 console.log(snd(x_)(y_) === y_);
