@@ -32,6 +32,16 @@ const firstname = konst;
 //const lastname = first => last => last;
 const lastname = snd;
 
+// unterscheidung zwischen 2
+const Left = (x) => (f) => (g) => f(x);
+const Right = (x) => (f) => (g) => g(x);
+const either = (eitherLeftOrRight) => (f) => (g) => eitherLeftOrRight(f)(g);
+// ==> eta reduction
+// const either = eitherLeftOrRight;
+// ==> alpha translation
+// const either = x => x;
+// const either = id;
+
 // ----- special -----
 
 const Tuple = (n) => [

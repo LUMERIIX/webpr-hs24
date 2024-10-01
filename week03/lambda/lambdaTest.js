@@ -68,14 +68,18 @@ test(dierk(lastname) === "König");
 // // either
 //
 
-// const safeDiv = num => divisor =>
-//     divisor === 0
-//     ? Left("schlecht!")
-//     : Right(num / divisor);
-//
-// either( safeDiv(1)(0)  )
-//       ( x => console.error(x))
-//       ( x => console.log(x));
+const safeDiv = (num) => (divisor) =>
+  divisor === 0 
+    ? Left("schlecht!") /*Excpetion*/ 
+    : Right(num / divisor);
+
+// Gut, weil man kann nicht vergessen die Exception zu behandeln (Checked Exception in Java), da die funktion sonst noch nicht vollständig evaluiert ist!
+either(safeDiv(1)(0))
+    ((x) => console.error(x))
+    ((x) => console.log(x)); // schlecht! => Exception (Left)
+either(safeDiv(1)(2))
+    ((x) => console.error(x))
+    ((x) => console.log(x)); // gut => Wert (Right)
 
 //
 // const [Cash, CreditCard, Invoice, PayPal, pay] = Choice(4);
