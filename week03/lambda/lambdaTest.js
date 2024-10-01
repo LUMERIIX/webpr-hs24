@@ -4,13 +4,10 @@
 const ok = [];
 const test = result => ok.push(result);
 
-const id = x => x;
-
 // id
 test( id(1) === 1 );
 test( id(id) === id );
 
-const konst = x => y => x;
 // konst
 test( konst(42)(0) === 42 );
 test( konst(42)(1) === 42 );
