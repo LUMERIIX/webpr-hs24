@@ -20,17 +20,17 @@ test( snd(null)(42) === 42 );
 test( T(1)(0) === 1 ); // branches: wenn true gib mir den ersten fall!
 test( F(1)(0) === 0 ); // branches: wenn false gib mir den zweiten fall!
 
-// // and
-// test( and(F)(F) === F );
-// test( and(T)(F) === F );
-// test( and(F)(T) === F );
-// test( and(T)(T) === T );
-//
-// // or
-// test( or(F)(F) === F );
-// test( or(T)(F) === T );
-// test( or(F)(T) === T );
-// test( or(T)(T) === T );
+// and
+test( and(F)(F) === F );
+test( and(T)(F) === F );
+test( and(F)(T) === F );
+test( and(T)(T) === T );
+
+// or
+test( or(F)(F) === F );
+test( or(T)(F) === T );
+test( or(F)(T) === T );
+test( or(T)(T) === T );
 
 // flip
 // flip(f)(x)(y) = f(y)(x)

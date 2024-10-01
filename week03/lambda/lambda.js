@@ -11,6 +11,18 @@ const snd = konst(id);
 const T = tc => fc => tc;
 const F = tc => fc => fc;
 
+const and = c1 => c2 => c1 ( c2(T)(F))     ( c2(F)(F))
+//                      first arguemnt returned if c1 = true; => return b
+//                      second argument returned if c1 = false => return 
+// simplified to; const and = c1 => c2 => c1 (c2(T)(F)) (F)
+// simplified further to: const and => c1 => c2 => c1 (c2) (F)
+// simplified further to: const and => c1 => c2 => c1 (c2) (c1)
+// ==> second value is evaluated if c1 is false so return false!
+
+const or = c1 => c2 => c1 (T) (c2);
+// return first value if c1 == true
+// return second value if c1 == false
+
 // ----- special -----
 
 const Tuple = n => [
