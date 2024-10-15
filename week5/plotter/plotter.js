@@ -1,4 +1,5 @@
 
+//höhe und breite des sinus im canvas
 const minX =  0;
 const maxX =  6;
 const minY = -1;
@@ -8,7 +9,27 @@ function start() {
     const userFunction = document.getElementById('user_function');
     const canvas       = document.getElementById('canvas');
 
-    // todo: how to display?
+    //Test if display drawing works!
+    //display(canvas, x => Math.sin(x));
+
+    //wrap the function in eval to evaluate the string as a function
+    //display(canvas, x => eval('Math.sin(x)'));
+
+    //return preevaulated function (cannot changed by user in html during runtime)
+    //const func = Function('x','return ' + userFunction.value);
+
+    // so func is a function that must be called that it's evaluated!
+    const func = _ => Function('x','return ' + userFunction.value);
+
+    //use value from input field (this is not responsive)
+    //display(canvas, x => eval(userFunction.value));
+    //display(canvas, func);
+    display(canvas, func());
+
+    // '_' is a placeholder for the event (we don't need it)
+    //userFunction.onchange = _ => display(canvas, x => eval(userFunction.value));
+    //userFunction.onchange = _ => display(canvas, func);
+    userFunction.onchange = _ => display(canvas, func());
 
 }
 
