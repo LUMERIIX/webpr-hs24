@@ -3,15 +3,16 @@
 ( () => {
     const ok = [];
 
-    const myObject = {
+    const myObject = { //literal constructor
         a   : 1,
         foo : function() { return this.a }
         // foo() { return this.a }              // syntactic sugar
     };
     ok.push(myObject.foo() === 1);
 
-    const myFunctions = [ myObject.foo ];
-    // ok.push(myFunctions[0]() === 1);        // do functions capture "this" in their scope ?
+    // > this is resolved literal (only in JS) during runtime: this is evaluated from right to left (to object)!
+    const myFunctions = [ myObject.foo.bind(myObject) ]; // + bind the returned-function (myObject.foo) to the object, to keep correct this-reference
+    ok.push(myFunctions[0]() === 1);        // do functions capture "this" in their scope ?
 
     function outer( callback ) {
         const a = 2;
@@ -260,7 +261,7 @@
     ok.push(Person.prototype.isPrototypeOf(bad));
 
     // new functions get shared
-    Person.prototype.secret = () => "top secret!";
+    Person.prototype.secret = () => "top secret!"; //add a secret to all instances of Person
     ok.push(good.secret() === "top secret!");
     ok.push(bad.secret()  === "top secret!");
 
