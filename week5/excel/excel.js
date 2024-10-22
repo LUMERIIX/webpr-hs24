@@ -23,7 +23,13 @@ function fillTable(container) {
             input.setAttribute("VALUE", Formulae[cellid]);
             input.setAttribute("ID", cellid);
 
-            // todo: what to do on input change or onClick?
+            // on cell edit update the formula-table
+            input.onchange = evt => {
+                Formulae[cellid] = input.value;
+                refresh();
+            }
+            // on click show the formula in the input field (not the evaluated results)
+            input.onclick = evt => input.value = Formulae[cellid];
 
             td.appendChild(input);
             tr.appendChild(td);
@@ -38,8 +44,9 @@ function refresh() {
             const cellid  = "" + col + row;
 
             const input   = document.getElementById(cellid);
-
-            // todo: how to refresh the input value?
+            
+            //evaluate the formula and set the result in the input field
+            input.value = eval(Formulae[cellid]);
 
         });
     });
