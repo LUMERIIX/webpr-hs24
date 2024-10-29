@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Tests</title>
+</head>
+<body>
+
+    <script>
+        // Das umgeht das Paradigma (SameOrigin-policy) des dynamischen Nachladens von Skripten von einer anderen Quelle (hier einmal browser und einmal vom Filesystem)
+        // => steigerungsform: hits coounting via images in mails (wenn HTML im Mail client supportet wird) => Marketing um zu sehen ob Mails gelesen werden
+        ["function", "lambda"].forEach(function(name) {
+            document.writeln('<script src="' + name + '/' + name + '.js"><' + '/script>')
+            document.writeln('<script src="' + name + '/' + name + 'Test.js"><' + '/script>')
+        });
+    </script>
+
+    <!--<script src="function/function.js"></script>---> <!--Specified first because functionTest.js needs function.js-->
+    <!---
+    <script src="function/functionTest.js"></script>
+
+    <script src="lambda/lambda.js"></script>
+    <script src="lambda/lambdaTest.js"></script>
+    -->
+
+</body>
+</html>
