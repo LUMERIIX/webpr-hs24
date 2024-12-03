@@ -30,7 +30,7 @@ const TodoController = () => {
 
     // const scheduler = Scheduler();
     const addFortuneTodo = button => {
-        // button.disabled = true;
+        button.disabled = true; //double-click prevention
         const newTodo = Todo();
         todoModel.add(newTodo);
         newTodo.setText("...");
@@ -38,7 +38,7 @@ const TodoController = () => {
         // scheduler.add( ok => {
             fortuneService( text => {
                 newTodo.setText(text);
-               // button.disabled = false;
+                button.disabled = false; //double-click prevention
                // ok();
             // });
        });
